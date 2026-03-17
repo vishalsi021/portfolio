@@ -68,30 +68,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 clamp(20px,5vw,80p
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px clamp(20px,5vw,80px);overflow:hidden}
 .hero-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Syne',sans-serif;font-size:clamp(120px,25vw,400px);font-weight:800;letter-spacing:-.06em;color:rgba(255,255,255,.02);white-space:nowrap;pointer-events:none;user-select:none}
-.hero-content{position:relative;z-index:2;width:100%;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.hero-left{display:flex;flex-direction:column;gap:32px}
-.hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);display:flex;align-items:center;gap:16px}
-.hero-eyebrow::before{content:'';width:40px;height:1px;background:currentColor}
+.hero-content{position:relative;z-index:2;width:100%;max-width:900px;margin:0 auto;text-align:center}
+.hero-left{display:flex;flex-direction:column;gap:32px;align-items:center}
+.hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);display:flex;align-items:center;gap:16px;justify-content:center}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:currentColor}
 .hero-name{font-family:'Syne',sans-serif;font-size:clamp(48px,8vw,96px);font-weight:800;line-height:.9;letter-spacing:-.04em}
 .hero-name-line{display:block;overflow:hidden}
 .hero-name-text{display:inline-block;transform:translateY(100%);animation:heroReveal 1s cubic-bezier(.76,0,.24,1) forwards}
 .hero-name-text:nth-child(1){animation-delay:.3s}
 .hero-name-text:nth-child(2){animation-delay:.4s}
 @keyframes heroReveal{to{transform:translateY(0)}}
-.hero-subtitle{font-size:clamp(18px,2vw,24px);font-weight:300;color:var(--text2);max-width:480px;line-height:1.6}
-.hero-ctas{display:flex;gap:16px;margin-top:24px}
+.hero-subtitle{font-size:clamp(18px,2vw,24px);font-weight:300;color:var(--text2);max-width:560px;line-height:1.6;margin:0 auto}
+.hero-ctas{display:flex;gap:16px;margin-top:24px;justify-content:center}
 .btn-primary{font-size:14px;font-weight:600;letter-spacing:.03em;padding:16px 36px;background:var(--white);color:var(--bg);border:none;border-radius:100px;cursor:pointer;transition:all .3s;display:inline-flex;align-items:center;gap:10px}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(255,255,255,.15)}
 .btn-secondary{font-size:14px;font-weight:600;letter-spacing:.03em;padding:16px 36px;background:transparent;color:var(--text);border:1px solid var(--border2);border-radius:100px;cursor:pointer;transition:all .3s}
 .btn-secondary:hover{border-color:var(--text);background:rgba(255,255,255,.05)}
 
-/* HERO PHOTO */
-.hero-right{position:relative}
-.hero-photo-wrapper{position:relative;aspect-ratio:3/4;max-width:420px;margin-left:auto}
-.hero-photo{width:100%;height:100%;object-fit:cover;border-radius:24px;filter:grayscale(100%);transition:filter .6s}
-.hero-photo-wrapper:hover .hero-photo{filter:grayscale(0%)}
-.hero-photo-frame{position:absolute;inset:-12px;border:1px solid var(--border);border-radius:32px;pointer-events:none}
-.hero-photo-label{position:absolute;bottom:-24px;right:0;font-size:11px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--text3)}
+
 .hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;color:var(--text3);font-size:11px;letter-spacing:.15em;text-transform:uppercase}
 .hero-scroll-line{width:1px;height:60px;background:linear-gradient(180deg,var(--text3),transparent);animation:scrollLine 2s ease-in-out infinite}
 @keyframes scrollLine{0%,100%{transform:scaleY(1);transform-origin:top}50%{transform:scaleY(0);transform-origin:top}}
@@ -127,19 +121,7 @@ section{padding:clamp(80px,12vw,160px) clamp(20px,5vw,80px);position:relative}
 .about-card-item a{transition:opacity .3s}
 .about-card-item a:hover{opacity:.6}
 
-/* PHOTO SECTION */
-#photos{background:var(--bg);overflow:hidden}
-.photos-header{text-align:center;margin-bottom:64px}
-.photos-title{font-family:'Syne',sans-serif;font-size:clamp(32px,5vw,56px);font-weight:700;letter-spacing:-.02em}
-.photos-subtitle{color:var(--text3);margin-top:16px;font-size:16px}
-.photos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1400px;margin:0 auto}
-.photo-card{position:relative;aspect-ratio:1;overflow:hidden;border-radius:16px;cursor:pointer}
-.photo-card:nth-child(1){grid-column:span 2;grid-row:span 2}
-.photo-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.1,.25,1),filter .6s}
-.photo-card:hover img{transform:scale(1.05);filter:brightness(1.1)}
-.photo-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.6));opacity:0;transition:opacity .4s;display:flex;align-items:flex-end;padding:24px}
-.photo-card:hover .photo-card-overlay{opacity:1}
-.photo-card-label{font-size:14px;font-weight:500}
+
 
 /* SKILLS */
 #skills{border-top:1px solid var(--border)}
@@ -239,14 +221,7 @@ footer{padding:24px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
 
 /* RESPONSIVE */
 @media(max-width:1024px){
-  .hero-content{grid-template-columns:1fr;gap:48px;text-align:center}
-  .hero-left{align-items:center}
-  .hero-eyebrow::before{display:none}
-  .hero-right{order:-1}
-  .hero-photo-wrapper{max-width:300px;margin:0 auto}
   .about-grid{grid-template-columns:1fr}
-  .photos-grid{grid-template-columns:repeat(2,1fr)}
-  .photo-card:nth-child(1){grid-column:span 2;grid-row:span 1}
   .skills-grid{grid-template-columns:1fr 1fr}
   .edu-grid{grid-template-columns:1fr}
   .project-item{grid-template-columns:1fr}
@@ -262,8 +237,6 @@ footer{padding:24px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
   .btn-primary,.btn-secondary{width:100%;justify-content:center}
   .about-stats{grid-template-columns:1fr}
   .skills-grid{grid-template-columns:1fr}
-  .photos-grid{grid-template-columns:1fr}
-  .photo-card:nth-child(1){grid-column:span 1}
   .project-featured{padding:32px}
   .project-featured-stats{grid-template-columns:repeat(2,1fr)}
   footer{flex-direction:column;gap:16px;text-align:center}
@@ -332,13 +305,7 @@ footer{padding:24px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
         <a href="#projects" class="btn-secondary">View My Work</a>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="hero-photo-wrapper">
-        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop&crop=face" alt="Vishal Singh" class="hero-photo" crossorigin="anonymous">
-        <div class="hero-photo-frame"></div>
-        <div class="hero-photo-label">Hyderabad, India</div>
-      </div>
-    </div>
+    
   </div>
   <div class="hero-scroll">
     <span>Scroll</span>
@@ -433,45 +400,7 @@ footer{padding:24px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
   </div>
 </section>
 
-<!-- PHOTOS -->
-<section id="photos">
-  <div class="photos-header reveal">
-    <h2 class="photos-title">Beyond The Code</h2>
-    <p class="photos-subtitle">Moments that define the journey</p>
-  </div>
-  <div class="photos-grid">
-    <div class="photo-card reveal">
-      <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=800&fit=crop" alt="Coding Setup" crossorigin="anonymous">
-      <div class="photo-card-overlay">
-        <span class="photo-card-label">Late Night Coding</span>
-      </div>
-    </div>
-    <div class="photo-card reveal d1">
-      <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=400&fit=crop" alt="Team Collaboration" crossorigin="anonymous">
-      <div class="photo-card-overlay">
-        <span class="photo-card-label">Team Sessions</span>
-      </div>
-    </div>
-    <div class="photo-card reveal d2">
-      <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=400&fit=crop" alt="Hackathon" crossorigin="anonymous">
-      <div class="photo-card-overlay">
-        <span class="photo-card-label">Hackathons</span>
-      </div>
-    </div>
-    <div class="photo-card reveal d3">
-      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&h=400&fit=crop" alt="Tech Conference" crossorigin="anonymous">
-      <div class="photo-card-overlay">
-        <span class="photo-card-label">Tech Events</span>
-      </div>
-    </div>
-    <div class="photo-card reveal d4">
-      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=400&fit=crop" alt="Learning" crossorigin="anonymous">
-      <div class="photo-card-overlay">
-        <span class="photo-card-label">Always Learning</span>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- SKILLS -->
 <section id="skills">
