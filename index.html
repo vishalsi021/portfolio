@@ -68,18 +68,32 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 clamp(20px,5vw,80p
 /* HERO */
 #hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px clamp(20px,5vw,80px);overflow:hidden}
 .hero-bg-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Syne',sans-serif;font-size:clamp(120px,25vw,400px);font-weight:800;letter-spacing:-.06em;color:rgba(255,255,255,.02);white-space:nowrap;pointer-events:none;user-select:none}
-.hero-content{position:relative;z-index:2;width:100%;max-width:900px;margin:0 auto;text-align:center}
-.hero-left{display:flex;flex-direction:column;gap:32px;align-items:center}
-.hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);display:flex;align-items:center;gap:16px;justify-content:center}
-.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:40px;height:1px;background:currentColor}
+.hero-content{position:relative;z-index:2;width:100%;max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.hero-left{display:flex;flex-direction:column;gap:32px;align-items:flex-start;text-align:left}
+
+/* HERO PHOTO */
+.hero-photo-section{position:relative;display:flex;justify-content:center;align-items:center}
+.hero-photo-wrapper{position:relative;width:100%;max-width:400px;aspect-ratio:3/4}
+.hero-photo-placeholder{width:100%;height:100%;border:2px dashed var(--border2);border-radius:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;background:var(--surface);transition:all .4s}
+.hero-photo-placeholder:hover{border-color:var(--text3);background:var(--surface2)}
+.hero-photo-icon{width:64px;height:64px;border:2px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center}
+.hero-photo-icon svg{width:32px;height:32px;stroke:var(--text3)}
+.hero-photo-text{font-size:14px;color:var(--text3);text-align:center}
+.hero-photo-text span{display:block;font-size:12px;margin-top:4px;opacity:.6}
+.hero-photo-frame{position:absolute;inset:-16px;border:1px solid var(--border);border-radius:32px;pointer-events:none}
+.hero-photo-frame::before{content:'';position:absolute;top:24px;right:-8px;width:16px;height:16px;border:1px solid var(--border);border-radius:50%;background:var(--bg)}
+.hero-photo-frame::after{content:'';position:absolute;bottom:48px;left:-8px;width:24px;height:24px;border:1px solid var(--border);border-radius:6px;background:var(--bg)}
+.hero-photo-label{position:absolute;bottom:-32px;right:0;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--text3)}
+.hero-eyebrow{font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--text3);display:flex;align-items:center;gap:16px}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:currentColor}
 .hero-name{font-family:'Syne',sans-serif;font-size:clamp(48px,8vw,96px);font-weight:800;line-height:.9;letter-spacing:-.04em}
 .hero-name-line{display:block;overflow:hidden}
 .hero-name-text{display:inline-block;transform:translateY(100%);animation:heroReveal 1s cubic-bezier(.76,0,.24,1) forwards}
 .hero-name-text:nth-child(1){animation-delay:.3s}
 .hero-name-text:nth-child(2){animation-delay:.4s}
 @keyframes heroReveal{to{transform:translateY(0)}}
-.hero-subtitle{font-size:clamp(18px,2vw,24px);font-weight:300;color:var(--text2);max-width:560px;line-height:1.6;margin:0 auto}
-.hero-ctas{display:flex;gap:16px;margin-top:24px;justify-content:center}
+.hero-subtitle{font-size:clamp(18px,2vw,24px);font-weight:300;color:var(--text2);max-width:520px;line-height:1.6}
+.hero-ctas{display:flex;gap:16px;margin-top:24px}
 .btn-primary{font-size:14px;font-weight:600;letter-spacing:.03em;padding:16px 36px;background:var(--white);color:var(--bg);border:none;border-radius:100px;cursor:pointer;transition:all .3s;display:inline-flex;align-items:center;gap:10px}
 .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 40px rgba(255,255,255,.15)}
 .btn-secondary{font-size:14px;font-weight:600;letter-spacing:.03em;padding:16px 36px;background:transparent;color:var(--text);border:1px solid var(--border2);border-radius:100px;cursor:pointer;transition:all .3s}
@@ -125,16 +139,14 @@ section{padding:clamp(80px,12vw,160px) clamp(20px,5vw,80px);position:relative}
 
 /* SKILLS */
 #skills{border-top:1px solid var(--border)}
-.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1400px;margin:0 auto}
-.skill-card{padding:40px;background:var(--surface);border:1px solid var(--border);border-radius:20px;transition:all .4s}
-.skill-card:hover{border-color:var(--border2);transform:translateY(-4px)}
-.skill-card-icon{font-size:32px;margin-bottom:24px}
-.skill-card-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:24px}
-.skill-items{display:flex;flex-direction:column;gap:16px}
-.skill-item{display:flex;justify-content:space-between;align-items:center;font-size:14px}
-.skill-item-name{color:var(--text2)}
-.skill-item-bar{width:100px;height:4px;background:var(--surface2);border-radius:4px;overflow:hidden;margin-left:16px}
-.skill-item-fill{height:100%;background:var(--white);border-radius:4px;width:0;transition:width 1.2s cubic-bezier(.25,.1,.25,1)}
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1400px;margin:0 auto}
+.skill-card{padding:24px;background:var(--surface);border:1px solid var(--border);border-radius:16px;transition:all .4s}
+.skill-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.skill-card-number{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--text3);margin-bottom:12px}
+.skill-card-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:16px}
+.skill-items{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{font-size:12px;padding:6px 12px;background:var(--surface2);border-radius:100px;color:var(--text2);transition:all .3s}
+.skill-tag:hover{background:var(--white);color:var(--bg)}
 
 /* PROJECTS */
 #projects{background:var(--bg2)}
@@ -221,8 +233,13 @@ footer{padding:24px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
 
 /* RESPONSIVE */
 @media(max-width:1024px){
+  .hero-content{grid-template-columns:1fr;text-align:center;gap:64px}
+  .hero-left{align-items:center}
+  .hero-eyebrow::before{display:none}
+  .hero-photo-section{order:-1}
+  .hero-photo-wrapper{max-width:280px}
   .about-grid{grid-template-columns:1fr}
-  .skills-grid{grid-template-columns:1fr 1fr}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
   .edu-grid{grid-template-columns:1fr}
   .project-item{grid-template-columns:1fr}
   .project-meta{justify-content:flex-start;margin-top:12px}
@@ -236,8 +253,9 @@ footer{padding:24px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
   .hero-ctas{flex-direction:column;width:100%}
   .btn-primary,.btn-secondary{width:100%;justify-content:center}
   .about-stats{grid-template-columns:1fr}
-  .skills-grid{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr 1fr}
   .project-featured{padding:32px}
+  .hero-photo-wrapper{max-width:220px}
   .project-featured-stats{grid-template-columns:repeat(2,1fr)}
   footer{flex-direction:column;gap:16px;text-align:center}
   .footer-links{gap:16px}
@@ -265,7 +283,6 @@ footer{padding:24px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="closeMobile()">About</a>
-  <a href="#photos" onclick="closeMobile()">Photos</a>
   <a href="#skills" onclick="closeMobile()">Skills</a>
   <a href="#projects" onclick="closeMobile()">Work</a>
   <a href="#experience" onclick="closeMobile()">Experience</a>
@@ -277,10 +294,9 @@ footer{padding:24px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
   <a href="#" class="nav-logo">VISHAL.</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#photos">Photos</a></li>
+    <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Work</a></li>
     <li><a href="#experience">Experience</a></li>
-    
     <li><a href="#contact">Contact</a></li>
   </ul>
   <a href="mailto:working.vishalsingh@gmail.com" class="nav-cta">Let's Talk</a>
@@ -305,7 +321,23 @@ footer{padding:24px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
         <a href="#projects" class="btn-secondary">View My Work</a>
       </div>
     </div>
-    
+    <div class="hero-photo-section">
+      <div class="hero-photo-wrapper">
+        <div class="hero-photo-placeholder">
+          <div class="hero-photo-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+            </svg>
+          </div>
+          <div class="hero-photo-text">
+            Your Photo Here
+            <span>Upload coming soon</span>
+          </div>
+        </div>
+        <div class="hero-photo-frame"></div>
+        <div class="hero-photo-label">Hyderabad, India</div>
+      </div>
+    </div>
   </div>
   <div class="hero-scroll">
     <span>Scroll</span>
@@ -410,123 +442,88 @@ footer{padding:24px clamp(20px,5vw,80px);border-top:1px solid var(--border);disp
   </div>
   <div class="skills-grid">
     <div class="skill-card reveal">
-      <div class="skill-card-icon">01</div>
+      <div class="skill-card-number">01</div>
       <h3 class="skill-card-title">Languages</h3>
       <div class="skill-items">
-        <div class="skill-item">
-          <span class="skill-item-name">Python</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="90"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">TypeScript</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="85"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">JavaScript</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="88"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">Java</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="78"></div></div>
-        </div>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">SQL</span>
       </div>
     </div>
     <div class="skill-card reveal d1">
-      <div class="skill-card-icon">02</div>
+      <div class="skill-card-number">02</div>
       <h3 class="skill-card-title">Frontend</h3>
       <div class="skill-items">
-        <div class="skill-item">
-          <span class="skill-item-name">React.js</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="88"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">Angular</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="82"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">HTML / CSS</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="92"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">Tailwind CSS</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="85"></div></div>
-        </div>
+        <span class="skill-tag">React.js</span>
+        <span class="skill-tag">Next.js</span>
+        <span class="skill-tag">Angular</span>
+        <span class="skill-tag">Tailwind</span>
+        <span class="skill-tag">HTML/CSS</span>
       </div>
     </div>
     <div class="skill-card reveal d2">
-      <div class="skill-card-icon">03</div>
-      <h3 class="skill-card-title">Backend & AI</h3>
+      <div class="skill-card-number">03</div>
+      <h3 class="skill-card-title">Backend</h3>
       <div class="skill-items">
-        <div class="skill-item">
-          <span class="skill-item-name">Node.js</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="87"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">Flask</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="78"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">PyTorch</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="80"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">scikit-learn</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="85"></div></div>
-        </div>
+        <span class="skill-tag">Node.js</span>
+        <span class="skill-tag">Express</span>
+        <span class="skill-tag">Flask</span>
+        <span class="skill-tag">REST APIs</span>
+        <span class="skill-tag">GraphQL</span>
       </div>
     </div>
     <div class="skill-card reveal d3">
-      <div class="skill-card-icon">04</div>
+      <div class="skill-card-number">04</div>
+      <h3 class="skill-card-title">AI / ML</h3>
+      <div class="skill-items">
+        <span class="skill-tag">PyTorch</span>
+        <span class="skill-tag">TensorFlow</span>
+        <span class="skill-tag">scikit-learn</span>
+        <span class="skill-tag">OpenAI</span>
+        <span class="skill-tag">LangChain</span>
+      </div>
+    </div>
+    <div class="skill-card reveal d4">
+      <div class="skill-card-number">05</div>
       <h3 class="skill-card-title">Databases</h3>
       <div class="skill-items">
-        <div class="skill-item">
-          <span class="skill-item-name">MongoDB</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="88"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">PostgreSQL</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="78"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">Redis</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="72"></div></div>
-        </div>
+        <span class="skill-tag">MongoDB</span>
+        <span class="skill-tag">PostgreSQL</span>
+        <span class="skill-tag">Redis</span>
+        <span class="skill-tag">Firebase</span>
       </div>
     </div>
     <div class="skill-card reveal d4">
-      <div class="skill-card-icon">05</div>
+      <div class="skill-card-number">06</div>
       <h3 class="skill-card-title">DevOps</h3>
       <div class="skill-items">
-        <div class="skill-item">
-          <span class="skill-item-name">Docker</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="82"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">Git / GitHub</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="88"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">Nginx</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="75"></div></div>
-        </div>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">Git</span>
+        <span class="skill-tag">AWS</span>
+        <span class="skill-tag">Vercel</span>
+        <span class="skill-tag">Nginx</span>
       </div>
     </div>
     <div class="skill-card reveal d4">
-      <div class="skill-card-icon">06</div>
+      <div class="skill-card-number">07</div>
       <h3 class="skill-card-title">Security</h3>
       <div class="skill-items">
-        <div class="skill-item">
-          <span class="skill-item-name">Zero Trust</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="85"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">JWT / OIDC</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="82"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-item-name">WAF</span>
-          <div class="skill-item-bar"><div class="skill-item-fill" data-w="78"></div></div>
-        </div>
+        <span class="skill-tag">Zero Trust</span>
+        <span class="skill-tag">JWT</span>
+        <span class="skill-tag">OAuth</span>
+        <span class="skill-tag">WAF</span>
+      </div>
+    </div>
+    <div class="skill-card reveal d4">
+      <div class="skill-card-number">08</div>
+      <h3 class="skill-card-title">Tools</h3>
+      <div class="skill-items">
+        <span class="skill-tag">VS Code</span>
+        <span class="skill-tag">Postman</span>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Linux</span>
       </div>
     </div>
   </div>
